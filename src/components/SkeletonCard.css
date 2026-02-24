@@ -1,0 +1,109 @@
+.skeleton-card,
+.skeleton-project-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.skeleton-project-card {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.skeleton-title,
+.skeleton-text,
+.skeleton-meta,
+.skeleton-action,
+.skeleton-footer,
+.skeleton-badge,
+.skeleton-date {
+    background: var(--bg-secondary);
+    background-image: linear-gradient(to right,
+            var(--bg-secondary) 0%,
+            var(--bg-primary) 20%,
+            var(--bg-secondary) 40%,
+            var(--bg-secondary) 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+    border-radius: 4px;
+}
+
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.skeleton-title {
+    height: 24px;
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.skeleton-title.medium {
+    width: 80%;
+}
+
+.skeleton-action {
+    height: 20px;
+    width: 20px;
+}
+
+.skeleton-text {
+    height: 16px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.skeleton-text.short {
+    width: 70%;
+}
+
+.skeleton-meta {
+    height: 14px;
+    width: 40%;
+    margin-top: 15px;
+}
+
+.skeleton-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    background: transparent;
+    /* Override shimmer for container */
+    animation: none;
+}
+
+.skeleton-badge {
+    height: 24px;
+    width: 80px;
+    border-radius: 12px;
+}
+
+.skeleton-date {
+    height: 16px;
+    width: 100px;
+}

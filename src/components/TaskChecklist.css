@@ -1,0 +1,233 @@
+/* ITDB Premium Checklist Styling */
+.task-checklist {
+    margin-top: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--itdb-radius-md);
+    padding: 16px;
+    font-family: var(--itdb-font-sans);
+}
+
+.checklist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.checklist-header h5 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.progress-percentage {
+    font-size: 0.8rem;
+    color: var(--itdb-gold);
+    font-weight: 700;
+}
+
+.checklist-progress-container {
+    height: 6px;
+    background: var(--bg-primary);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.checklist-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--itdb-teal), var(--itdb-gold));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+}
+
+.checklist-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.checklist-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.checklist-item.completed .item-text {
+    text-decoration: line-through;
+    color: var(--itdb-text-muted);
+    opacity: 0.6;
+}
+
+.drag-handle {
+    cursor: grab;
+    color: var(--itdb-text-muted);
+    opacity: 0.3;
+    transition: opacity 0.2s;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.checklist-item:hover .drag-handle {
+    opacity: 0.8;
+}
+
+.item-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+    background: transparent;
+}
+
+.item-checkbox:checked {
+    background: var(--itdb-teal);
+    border-color: var(--itdb-teal);
+}
+
+.item-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-text {
+    flex: 1;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-edit-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--itdb-teal);
+    border-radius: 4px;
+    color: var(--itdb-text-light);
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    outline: none;
+}
+
+.item-delete-btn {
+    opacity: 0;
+    background: none;
+    border: none;
+    color: #ef9a9a;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.checklist-item:hover .item-delete-btn {
+    opacity: 0.6;
+}
+
+.item-delete-btn:hover {
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+.add-checklist-item-form {
+    display: flex;
+    gap: 8px;
+}
+
+.add-checklist-item-form input {
+    flex: 1;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.add-checklist-item-form input:focus {
+    border-color: var(--itdb-teal);
+}
+
+.add-checklist-item-form button {
+    width: 38px;
+    background: var(--itdb-teal);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bulk-actions-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bulk-actions-bar button {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: var(--itdb-text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bulk-actions-bar button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--itdb-text-light);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bulk-actions-bar button.delete-bulk:hover {
+    background: rgba(239, 83, 80, 0.1);
+    border-color: rgba(239, 83, 80, 0.3);
+    color: #ef5350;
+}
+
+.add-checklist-item-form button:hover:not(:disabled) {
+    background: #57d9d0;
+    transform: scale(1.05);
+}
+
+.add-checklist-item-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

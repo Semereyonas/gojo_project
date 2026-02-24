@@ -1,0 +1,104 @@
+.confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 20, 41, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 0;
+    z-index: 1100;
+    backdrop-filter: blur(12px);
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.confirm-modal {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.92));
+    border: 1.5px solid rgba(78, 205, 196, 0.3);
+    border-radius: var(--itdb-radius-lg);
+    width: 90%;
+    max-width: 420px;
+    margin-top: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 60px rgba(78, 205, 196, 0.15);
+    animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.confirm-header {
+    padding: var(--itdb-spacing-lg) var(--itdb-spacing-xl);
+    border-bottom: 1px solid rgba(78, 205, 196, 0.1);
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), transparent);
+}
+
+.confirm-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--itdb-teal), var(--itdb-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.01em;
+}
+
+.confirm-body {
+    padding: var(--itdb-spacing-lg) var(--itdb-spacing-xl);
+    flex: 1;
+}
+
+.confirm-body p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.confirm-footer {
+    padding: var(--itdb-spacing-lg) var(--itdb-spacing-xl);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.05), transparent);
+    border-top: 1px solid rgba(78, 205, 196, 0.1);
+}
+
+.confirm-btn {
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: var(--itdb-radius-md);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.confirm-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

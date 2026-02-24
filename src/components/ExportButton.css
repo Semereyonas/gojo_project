@@ -1,0 +1,136 @@
+.export-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-export-main {
+    background: rgba(78, 205, 196, 0.1);
+    color: var(--itdb-teal);
+    border: 1px solid var(--itdb-teal);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--itdb-radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-export-main:hover {
+    background: var(--itdb-teal);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+}
+
+.export-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 280px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.25rem;
+    z-index: 1000;
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.export-section {
+    margin-bottom: 1.25rem;
+}
+
+.export-section h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.format-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.format-options label {
+    flex: 1;
+    background: var(--bg-secondary);
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.format-options label.active {
+    background: rgba(78, 205, 196, 0.15);
+    border-color: var(--itdb-teal);
+    color: var(--itdb-teal);
+}
+
+.format-options input {
+    display: none;
+}
+
+.section-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.section-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.section-options input[type="checkbox"] {
+    accent-color: var(--itdb-teal);
+    width: 16px;
+    height: 16px;
+}
+
+.export-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.btn-generate {
+    width: 100%;
+    background: var(--itdb-teal);
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-generate:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.btn-generate:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

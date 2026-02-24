@@ -1,0 +1,220 @@
+/* ITDB High Density Task Card */
+.task-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6));
+    border: 1px solid rgba(78, 205, 196, 0.15);
+    border-radius: var(--itdb-radius-md);
+    padding: var(--itdb-spacing-md) var(--itdb-spacing-md);
+    margin-bottom: 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 30px rgba(78, 205, 196, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 40px rgba(78, 205, 196, 0.1);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75));
+    border-color: rgba(78, 205, 196, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Status Indicators */
+.task-card.status-todo {
+    border-left-color: var(--itdb-warning);
+}
+
+.task-card.status-in-progress {
+    border-left-color: var(--itdb-info);
+    background: linear-gradient(90deg, rgba(2, 136, 209, 0.05) 0%, transparent 100%);
+}
+
+.task-card.status-done {
+    border-left-color: var(--itdb-success);
+    opacity: 0.8;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.task-header .task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.delete-btn {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--itdb-danger);
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.18);
+    transform: translateY(-2px);
+}
+
+.task-title {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Truncate long task titles and allow flex layout to shrink properly */
+.task-header .task-title {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+}
+
+/* Header left wrapper to align drag handle and title */
+.task-header .task-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Visual drag handle for task cards (visual only) */
+.task-drag-handle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 6px;
+    background: rgba(78, 205, 196, 0.04);
+    color: var(--itdb-teal);
+    border: 1px solid rgba(78, 205, 196, 0.08);
+    cursor: default;
+}
+
+.task-drag-handle:hover {
+    background: rgba(78, 205, 196, 0.08);
+    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.08);
+    transform: translateY(-1px);
+}
+
+.task-description {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 4px 0 8px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.task-meta {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 8px;
+    font-family: var(--itdb-font-mono);
+}
+
+.task-assignees {
+    display: flex;
+    flex-direction: row;
+    /* Normal flow */
+    align-items: center;
+}
+
+.assignee-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--itdb-gold);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.7rem;
+    border: 2px solid var(--itdb-void);
+    margin-right: -8px;
+    /* Stack to the right */
+    transition: all 0.2s ease;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.assignee-avatar:hover {
+    transform: translateY(-4px) scale(1.1);
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    margin-right: 0;
+    /* Expand on hover to see better */
+}
+
+/* Give each avatar a decreasing z-index so the first one is on top */
+.assignee-avatar:nth-child(1) {
+    z-index: 5;
+}
+
+.assignee-avatar:nth-child(2) {
+    z-index: 4;
+}
+
+.assignee-avatar:nth-child(3) {
+    z-index: 3;
+}
+
+.assignee-avatar:nth-child(4) {
+    z-index: 2;
+}
+
+.assignee-avatar:nth-child(n+5) {
+    z-index: 1;
+}
+
+.assignee-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.due-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.due-date::before {
+    content: '📅';
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Task actions visible by default (show delete/select controls) */
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

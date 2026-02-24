@@ -1,0 +1,155 @@
+/* Styles for DraggableTaskCard and Priorities */
+
+/* Wrapper to hold the colored background */
+.priority-indicator-wrapper {
+    position: relative;
+    border-radius: var(--itdb-radius-md);
+    overflow: hidden;
+    /* Ensure the background shows through the translucent TaskCard if needed */
+}
+
+/* Ensure TaskCard uses transparent background when inside priority wrapper if we want color to show */
+.priority-indicator-wrapper .task-card {
+    background: var(--bg-primary);
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+.priority-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    box-shadow: var(--shadow);
+}
+
+.draggable-task-wrapper {
+    /* Ensure drop shadow is on the whole unit */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s, filter 0.2s;
+    margin-bottom: 16px;
+}
+
+.draggable-task-wrapper:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
+}
+
+/* Ensure titles inside draggable task cards truncate properly */
+.priority-indicator-wrapper .task-card .task-title,
+.draggable-task-wrapper .task-card .task-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ITDB Action Buttons Styling */
+/* Mini Progress Bar for Checklist */
+.mini-progress-container {
+    height: 4px;
+    background: var(--bg-secondary);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.mini-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--itdb-teal), var(--itdb-gold));
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px rgba(78, 205, 196, 0.4);
+}
+
+.task-actions-btn {
+    margin-top: -12px;
+    /* Pull up to overlap slightly */
+    padding: 0 12px 12px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    position: relative;
+    z-index: 50;
+    /* Ensure it stays on top */
+    background: var(--bg-secondary);
+    border-radius: 0 0 var(--itdb-radius-md) var(--itdb-radius-md);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    box-shadow: var(--shadow);
+}
+
+.task-action-btn,
+.task-action-icon {
+    font-size: 0.75rem !important;
+    padding: 4px 10px !important;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.task-action-icon {
+    font-size: 1rem !important;
+    color: var(--itdb-gold) !important;
+    background: rgba(198, 161, 91, 0.1) !important;
+    border-color: rgba(198, 161, 91, 0.3) !important;
+}
+
+.task-action-icon:hover {
+    background: rgba(198, 161, 91, 0.2) !important;
+    border-color: var(--itdb-gold) !important;
+    box-shadow: 0 0 10px rgba(198, 161, 91, 0.3);
+}
+
+.action-count {
+    background: var(--itdb-gold);
+    color: #000;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    box-shadow: 0 0 8px var(--itdb-gold);
+    margin-left: 2px;
+}
+
+.task-action-btn:hover,
+.task-action-icon:hover {
+    background: rgba(44, 122, 123, 0.3) !important;
+    border-color: var(--itdb-teal);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(44, 122, 123, 0.3);
+}
+
+.btn-danger.task-action-btn:hover {
+    background: rgba(198, 40, 40, 0.3) !important;
+    border-color: var(--itdb-danger);
+    box-shadow: 0 2px 8px rgba(198, 40, 40, 0.3);
+}
+
+/* Make the delete button highly visible in default state */
+.btn-danger.task-action-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: #fff !important;
+    border: 1px solid rgba(220, 38, 38, 0.9) !important;
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.25) !important;
+    transform: translateY(0);
+}
+
+.btn-danger.task-action-btn:active {
+    transform: translateY(1px) scale(0.995);
+}

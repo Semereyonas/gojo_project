@@ -1,0 +1,69 @@
+.empty-state-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+}
+
+.empty-state-content {
+    max-width: 400px;
+}
+
+.empty-state-image {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.empty-state-title {
+    font-size: 1.2rem;
+    /* Sharper */
+    color: var(--itdb-gold);
+    /* Identity match */
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.empty-state-message {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-family: var(--itdb-font-mono);
+}
+
+.empty-state-btn {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+/* Pulse Animation for a more technical feel */
+@keyframes itdb-pulse-subtle {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.98);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(0.98);
+    }
+}
+
+.itdb-pulse {
+    animation: itdb-pulse-subtle 4s infinite ease-in-out;
+}

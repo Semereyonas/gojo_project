@@ -1,0 +1,333 @@
+/* Task Detail Modal - Premium ITDB Styling */
+.task-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+}
+
+.task-detail-modal {
+    background: var(--bg-primary);
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    margin-top: 0;
+    border-radius: var(--itdb-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header {
+    padding: 24px 32px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.priority-pill {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.priority-pill.high {
+    background: rgba(239, 83, 80, 0.2);
+    color: #ef5350;
+    border: 1px solid rgba(239, 83, 80, 0.3);
+}
+
+.priority-pill.medium {
+    background: rgba(255, 202, 40, 0.2);
+    color: #ffca28;
+    border: 1px solid rgba(255, 202, 40, 0.3);
+}
+
+.priority-pill.low {
+    background: rgba(102, 187, 106, 0.2);
+    color: #66bb6a;
+    border: 1px solid rgba(102, 187, 106, 0.3);
+}
+
+.status-pill {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--itdb-text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.close-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--itdb-text-muted);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--itdb-text-light);
+}
+
+/* Tabs */
+.modal-tabs {
+    display: flex;
+    padding: 0 32px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.modal-tabs button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.modal-tabs button:hover {
+    color: var(--itdb-text-light);
+}
+
+.modal-tabs button.active {
+    color: var(--itdb-gold);
+}
+
+.modal-tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--itdb-gold);
+}
+
+/* Content Area */
+.modal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px;
+}
+
+.description-text {
+    line-height: 1.6;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    margin-top: 12px;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-item label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--itdb-gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.meta-item span {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.assignees-list {
+    display: flex;
+    gap: 8px;
+}
+
+.mini-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--itdb-teal);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+/* Comments Tab */
+.tab-comments {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.comments-stream {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-comment {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.comment-meta strong {
+    color: var(--itdb-teal);
+}
+
+.comment-meta span {
+    color: var(--itdb-text-muted);
+}
+
+.modal-comment-form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-comment-form textarea {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    padding: 12px;
+    min-height: 80px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-comment-form textarea:focus {
+    border-color: var(--itdb-teal);
+}
+
+/* History Tab */
+.history-timeline {
+    position: relative;
+    padding-left: 32px;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.history-entry {
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.entry-point {
+    position: absolute;
+    left: -32px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--itdb-void);
+    border: 2px solid var(--itdb-gold);
+    z-index: 1;
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.entry-action {
+    color: var(--itdb-teal);
+}
+
+.entry-time {
+    color: var(--itdb-text-muted);
+    font-size: 0.75rem;
+    margin-left: auto;
+}
+
+.entry-details {
+    font-size: 0.8rem;
+    color: var(--itdb-text-muted);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

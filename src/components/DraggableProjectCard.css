@@ -1,0 +1,24 @@
+/* Styles for DraggableProjectCard (minimal, supplements ProjectsPage.css) */
+
+.draggable-project-wrapper {
+    margin-bottom: 16px;
+}
+
+.project-drag-handle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(198, 161, 91, 0.06);
+    color: var(--itdb-gold);
+    border: 1px solid rgba(198, 161, 91, 0.12);
+}
+
+.project-drag-handle:hover {
+    background: rgba(198, 161, 91, 0.12);
+    box-shadow: 0 2px 8px rgba(198, 161, 91, 0.12);
+    transform: translateY(-1px);
+}
